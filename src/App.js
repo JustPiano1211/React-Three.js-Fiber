@@ -9,7 +9,7 @@ const Box = (props) => {
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
-  // useFrame((state, delta) => (meshRef.current.rotation.x += delta));
+  useFrame((state, delta) => (meshRef.current.rotation.x += delta));
   return (
     <mesh
       {...props}
