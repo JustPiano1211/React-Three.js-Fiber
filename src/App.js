@@ -1,3 +1,4 @@
+import { OrbitControls } from '@react-three/drei';
 import './App.css';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
@@ -8,7 +9,7 @@ const Box = (props) => {
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
-  useFrame((state, delta) => (meshRef.current.rotation.x += delta));
+  // useFrame((state, delta) => (meshRef.current.rotation.x += delta));
   return (
     <mesh
       {...props}
@@ -17,20 +18,20 @@ const Box = (props) => {
       onClick={(event) => setActive(!active)}
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}>
-      <boxGeometry args={[1.8, 1.8, 1.8]} />
+      <boxGeometry args={[1.2, 1.2, 1.2]} />
       <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
     </mesh>
   )
 }
 
 const App = () => (
-  <Canvas>
+  <Canvas style={{ height: "100vh" }}>
     <ambientLight intensity={1} />
-    <spotLight position={[10, 10, 10]} angle={0.15} lookAt={[0, 0, 0]} penumbra={1} decay={0} intensity={Math.PI} />
-    <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-    <directionalLight position={[10, 10, 10]} />
-    <Box position={[-1.2, 0, 0]} />
-    <Box position={[1.2, 0, 0]} />
+    <spotLight position={[20, 20, 20]} angle={0.15} lookAt={[0, 0, 0]} penumbra={1} decay={0} intensity={Math.PI} />
+    <pointLight position={[-20, -20, -20]} decay={0} intensity={Math.PI} />
+    <Box position={[-1, 0, 0]} />
+    <Box position={[1, 0, 0]} />
+    <OrbitControls />
   </Canvas>
 )
 
