@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import styles from "./styles.module.scss";
 
 const Header = () => {
   return (
-    <div style={{ height: "50px", backgroundColor: "cyan" }}>Header</div>
+    <div className={styles.wrapper}>
+      header
+    </div>
   )
 }
 
